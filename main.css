@@ -1,9 +1,34 @@
 /*http://j4n.co/blog/Creating-your-own-css-grid-system*/
 
 
-/*The purpose of the container is to set the width of the enite grid.
 
-The purpose of a row element is to keep the colums inside it from overflowing to other rows. */
+As we can see, the basic grid contains just a few elements.
+
+a container
+rows
+columns
+gutters (the space between columns)
+
+
+The Container
+The purpose of the container is to set the width of the enite grid.
+
+.grid-container {
+        width : 100%;
+        max-width : 1200px; 
+    }
+
+
+The Row
+The purpose of a row element is to keep the colums inside it from overflowing to other rows. 
+
+/*-- our cleafix hack -- */ 
+    .row:before, 
+    .row:after {
+        content:"";
+        display: table ;
+         clear:both;
+    }
 
 
 
