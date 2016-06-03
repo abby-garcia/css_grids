@@ -1,6 +1,6 @@
 /*http://j4n.co/blog/Creating-your-own-css-grid-system*/
 
-
+/*Make 12 columns!!!*/
 
 As we can see, the basic grid contains just a few elements.
 
@@ -36,16 +36,11 @@ The Column
 - Column Positioning - there are many different ways you can do things, like floats, inline-bloks, display-table, displayfelx, etc...
    - the least error prone is the 'float' method
 		
-		[class*='col-'] {
+		[class*='col-'] {  /*for every class that contains 'col-'*/
         float: left;
         min-height: 1px; 
     }
 - Column Widths - To find the width of one column, all we have to do is divide the total number of columns by the width of the container.     
-	[class*='col-'] {
-        float: left;
-        min-height: 1px; 
-        width: 16.66%; 
-    }
 
     .col-1{
         width: 16.66%; 
@@ -92,7 +87,7 @@ CSS
     .row:after {
         content:"";
           display: table ;
-        clear:both;
+        clear:both;  /*clears both left and right, forces it to the next line*/
     }
 
     [class*='col-'] {
@@ -165,7 +160,7 @@ HOW DO YOU MAKE IT RESPONSIVE?!
             width: 100%; 
         }
 
-        .row .col-5 ~ .col-1{
+        .row .col-5 ~ .col-1{  /*~ means besides*/
             width: 100%; 
         }
     }    
