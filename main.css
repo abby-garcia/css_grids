@@ -4,10 +4,10 @@
 
 As we can see, the basic grid contains just a few elements.
 
-a container
-rows
-columns
-gutters (the space between columns)
+- a container
+- rows
+- columns
+- gutters (the space between columns)
 
 
 The Container
@@ -31,5 +31,153 @@ The purpose of a row element is to keep the colums inside it from overflowing to
     }
 
 
+The Column    
 
+- Column Positioning - there are many different ways you can do things, like floats, inline-bloks, display-table, displayfelx, etc...
+   - the least error prone is the 'float' method
+		[class*='col-'] {
+        float: left;
+        min-height: 1px; 
+    }
+- Column Widths - To find the width of one column, all we have to do is divide the total number of columns by the width of the container.     
+	[class*='col-'] {
+        float: left;
+        min-height: 1px; 
+        width: 16.66%; 
+    }
+
+    .col-1{
+        width: 16.66%; 
+    }
+    .col-2{
+        width: 33.33%; 
+    }
+    .col-3{
+        width: 50%; 
+    }
+    .col-4{
+        width: 66.664%;
+    }
+    .col-5{
+        width: 83.33%;
+    }
+    .col-6{
+        width: 100%;
+    }
+
+- Column Gutters - using the border - box model , we can crete gutters easily    
+/*-- setting border box on all elements inside the grid --*/
+    .grid-container *{
+        box-sizing: border-box; 
+    }
+
+    [class*='col-'] {
+        float: left;
+        min-height: 1px; 
+        width: 16.66%; 
+        /*-- our gutter --*/
+        padding: 12px;
+    }
+
+BASIC GRID IS BELOW : 
+CSS
+.grid-container{
+        width: 100%; 
+        max-width: 1200px;      
+    }
+
+    /*-- our cleafix hack -- */ 
+    .row:before, 
+    .row:after {
+        content:"";
+          display: table ;
+        clear:both;
+    }
+
+    [class*='col-'] {
+        float: left; 
+        min-height: 1px; 
+        width: 16.66%; 
+        /*-- our gutter -- */
+        padding: 12px; 
+        background-color: #FFDCDC;
+    }
+
+    .col-1{ width: 16.66%; }
+    .col-2{ width: 33.33%; }
+    .col-3{ width: 50%;    }
+    .col-4{ width: 66.66%; }
+    .col-5{ width: 83.33%; }
+    .col-6{ width: 100%;   }
+
+    .outline, .outline *{
+        outline: 1px solid #F6A1A1; 
+    }
+
+    /*-- some extra column content styling --*/
+    [class*='col-'] > p {
+     background-color: #FFC2C2; 
+     padding: 0;
+     margin: 0;
+     text-align: center; 
+     color: white; 
+    }
+
+HTML
+
+<div class="grid-container outline">
+        <div class="row">
+            <div class="col-1"><p>col-1</p></div> 
+            <div class="col-1"><p>col-1</p></div> 
+            <div class="col-1"><p>col-1</p></div> 
+            <div class="col-1"><p>col-1</p></div> 
+            <div class="col-1"><p>col-1</p></div> 
+            <div class="col-1"><p>col-1</p></div> 
+        </div> 
+        <div class="row">
+            <div class="col-2"><p>col-2</p></div> 
+            <div class="col-2"><p>col-2</p></div> 
+            <div class="col-2"><p>col-2</p></div> 
+        </div> 
+        <div class="row">
+            <div class="col-3"><p>col-3</p></div> 
+            <div class="col-3"><p>col-3</p></div> 
+        </div> 
+    </div>
+
+<hr/>
+
+
+HOW DO YOU MAKE IT RESPONSIVE?! 
+- It's easy, all you have to do is adjust the widths of the columns
+
+800px
+@media all and (max-width:800px){
+        .col-1{ width: 33.33%;    }
+        .col-2{ width: 50%;        }
+        .col-3{ width: 83.33%;    }
+        .col-4{ width: 100%;    }
+        .col-5{ width: 100%;    }
+        .col-6{ width: 100%;      }
+
+        .row .col-2:last-of-type{
+            width: 100%; 
+        }
+
+        .row .col-5 ~ .col-1{
+            width: 100%; 
+        }
+    }    
+
+Screens smaller than 800px
+@media all and (max-width:650px){
+        .col-1{ width: 50%;        }
+        .col-2{ width: 100%;    }
+        .col-3{ width: 100%;    }
+        .col-4{ width: 100%;    }
+        .col-5{ width: 100%;    }
+        .col-6{ width: 100%;      }
+    }
+
+    
 
