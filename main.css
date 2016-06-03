@@ -35,6 +35,7 @@ The Column
 
 - Column Positioning - there are many different ways you can do things, like floats, inline-bloks, display-table, displayfelx, etc...
    - the least error prone is the 'float' method
+		
 		[class*='col-'] {
         float: left;
         min-height: 1px; 
